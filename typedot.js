@@ -1,8 +1,9 @@
 const tc = require('./typeCheckers')
 
-function getValue(req,str){
+// takes a string like 'params.something.id' and returns the var with the key 'id'
+const getValue = (req,str)=>{
   arr = str.split('.')
-  for(let i=0; i<arr.length -1; i++){
+  for(let i=0; i<arr.length-1; i++){
     let val = arr[i]
     let tmp = req[val]
 
@@ -13,8 +14,8 @@ function getValue(req,str){
       return tmp
     }
   }
-  let val = req[arr[arr.length-1]]
-  return val
+
+  return req[arr[arr.length-1]]
 }
 
 const defaultErrorHandler = {
@@ -27,7 +28,7 @@ const defaultErrorHandler = {
   }
 }
 
-let typeFunc = (varName,validator,name) =>{
+const typeFunc = (varName,validator,name)=>{
     return (req,res,next)=>{
       const val = getValue(req,varName)
       validator(val) ? next() : type.error.onError(req,res,varName,name)
@@ -42,6 +43,10 @@ const type = {
   int: (varName) => typeFunc(varName,tc.isInt,'Integer'),
   object: (varName) => typeFunc(varName,tc.isObject,'Object'),
   char: (varName) => typeFunc(varName,tc.isChar,'Character')
+}
+
+if(process.env.TYPEDOT_UNIT_TESTING){
+  type.getValue = getValue
 }
 
 module.exports = type

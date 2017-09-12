@@ -4,7 +4,7 @@
   "description": "Elegant type checking middleware for Express.js",
   "main": "typedot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/alexarena/typedot/issues"
   },
-  "homepage": "https://github.com/alexarena/typedot#readme"
+  "homepage": "https://github.com/alexarena/typedot#readme",
+  "devDependencies": {
+    "jest": "^21.0.2"
+  }
 }
