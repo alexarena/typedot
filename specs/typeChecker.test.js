@@ -17,6 +17,8 @@ test('isString()', () => {
 test('isInt()', () => {
   expect(tc.isInt(1)).toBe(true)
   expect(tc.isInt('1')).toBe(true)
+
+  expect(tc.isInt('1.0')).toBe(true)
   expect(tc.isInt(1.0)).toBe(true)
 
   expect(tc.isInt(1.1)).toBe(false)
