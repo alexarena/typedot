@@ -4,7 +4,7 @@
   "description": "Elegant type checking middleware for Express.js",
   "main": "typedot.js",
   "scripts": {
-    "test": "jest"
+    "test": "TYPEDOT_UNIT_TESTING=true jest"
   },
   "repository": {
     "type": "git",
