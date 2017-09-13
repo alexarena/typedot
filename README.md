@@ -8,7 +8,7 @@ I like this format, but its farrr from something that you should use.
 
 Take this route in Express:
 
-```
+```js
 app.get('/:id',function(req,res){
   return res.sendStatus(200)
 })
@@ -18,7 +18,7 @@ If you want to assert that `req.params.id` should be an integer, you'd add `type
 
 Here's what the resulting route would look like:
 
-```
+```js
 app.get('/:id',type.int('params.something.id'),function(req,res){
   return res.sendStatus(200)
 })
